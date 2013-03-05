@@ -1,7 +1,8 @@
 "START_AD.obj",
 "skc.obj",
 "frequency.obj",
-"timer1.obj" 
+"timer1.obj",
+"tic.obj" 
 TO "skc" 
 RAMSIZE(256) 
 XDATA( 0X0000-0X07FF )

@@ -416,6 +416,11 @@
               <FileType>5</FileType>
               <FilePath>.\skc.h</FilePath>
             </File>
+            <File>
+              <FileName>tic.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\tic.c</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

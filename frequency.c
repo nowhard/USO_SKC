@@ -1,5 +1,6 @@
 #include "frequency.h"
 #include "skc.h"
+#include "tic.h"
 
 #define FREQ_CHANNELS	2
 
@@ -50,6 +51,8 @@ void Frequency_Init(void) //инициализация частотных каналов
 		frequency[1].frame[i].time_copy=0;
 		frequency[1].frame[i].event_copy=0;
 	}
+	TIC_Init();
+	TIC_Start();
 
 	return;
 }
@@ -61,7 +64,7 @@ void INT0_ISR(void) interrupt 0 //using 3//обработчик внешнего прерывания 0
 	cnt=(frequency[FRQ_CHNL_1].time_counter>>SHEAR);
 	frequency[FRQ_CHNL_1].frame[cnt].event_counter++;
 	frequency[FRQ_CHNL_1].frame[cnt].timestamp=frequency[FRQ_CHNL_1].time_counter;
-	kan[8].dannie++;
+//	kan[8].dannie++;
 //	EA=1;
 	//return;
 }
@@ -73,7 +76,7 @@ void INT1_ISR(void) interrupt 2 //using 3//обработчик внешнего прерывания 1
 	cnt=(frequency[FRQ_CHNL_1].time_counter>>SHEAR);
 	frequency[FRQ_CHNL_2].frame[cnt].event_counter++;
 	frequency[FRQ_CHNL_2].frame[cnt].timestamp=frequency[FRQ_CHNL_1].time_counter;
-	kan[10].dannie++;
+	//kan[10].dannie++;
 //	return;
 }
 //--------------------------------------------------------
@@ -205,3 +208,10 @@ unsigned char Frequency_Measure_Process(void)//циклический процесс измерения час
 	return 0;
 }
 //------------------------------------------------------------
+ void TIC_ISR(void) interrupt 10 	//using 1   //прерывания таймера в 1 секунду
+{
+	kan[8].dannie+=50;
+	kan[10].dannie+=50;
+	TIMECON&=0xFB;
+	
+} 
