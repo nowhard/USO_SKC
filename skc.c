@@ -88,7 +88,7 @@ unsigned char xdata adres_ust=0x01;							// адрес устройства
 unsigned char xdata in_buffer[257]="\x00\xD7\x29\x01\x15\x10\x40\x00\x03\xD6\xCE\x48\x40\xA0\x01\x02\xD6\xCE\x48\x40\xB0\xAA";
 					
 unsigned char xdata bayt_statusa=0xC0;	                    // байт статуса узла
-unsigned char xdata Name_ustr[]="<<__SKC__>>";			// наименование устройства не больше 20 байт
+unsigned char xdata Name_ustr[]="USO-1";			// наименование устройства не больше 20 байт
 unsigned char xdata Versiya_prog[5]="\x30\x30\x30\x30\x31";					// версия программы ПЗУ	не больше 5 байт
 unsigned char xdata Kol_kanalov=0;		                    // количество каналов
 unsigned char xdata Primechanie[]="<-- GEOSPHERA_2008 -->";		                    // количество каналов не более 200 байт
